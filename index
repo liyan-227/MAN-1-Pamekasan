@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAN 1 Pamekasan</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Arial, sans-serif; }
+  body { background:#f4f6f2; color:#1f3d2b; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #eaf3e6 0%, #f7f7f0 60%);
+    position: relative;
+    padding: 70px 6% 100px;
+    overflow: hidden;
+  }
+  .hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero-text { flex: 1 1 420px; }
+  .greeting { color:#c99a2e; font-size:1.3rem; font-style: italic; margin-bottom:6px; }
+  .hero-text h1 {
+    font-size: 2.6rem;
+    color:#1e4d2b;
+    line-height:1.15;
+    margin-bottom:10px;
+  }
+  .tagline { font-style: italic; color:#2f6b3e; font-size:1.1rem; margin-bottom:16px; }
+  .desc { color:#3c4a3d; font-size:.98rem; max-width:480px; line-height:1.6; margin-bottom:28px; }
+
+  .badges { display:flex; gap:28px; flex-wrap:wrap; }
+  .badge { text-align:center; font-size:.85rem; font-weight:600; color:#25422a; }
+  .badge-icon {
+    width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 8px; font-size:1.4rem; color:#fff;
+  }
+  .badge:nth-child(1) .badge-icon { background:#2f7d3c; }
+  .badge:nth-child(2) .badge-icon { background:#d6a020; }
+  .badge:nth-child(3) .badge-icon { background:#2f7d3c; }
+  .badge:nth-child(4) .badge-icon { background:#d6a020; }
+
+  .hero-image { flex: 1 1 420px; position: relative; }
+  .hero-image img {
+    width:100%; border-radius: 24px; display:block;
+    box-shadow: 0 20px 40px rgba(0,0,0,.15);
+  }
+  .quote-box {
+    position:absolute; bottom:-30px; left:50%; transform:translateX(-50%);
+    background:#1e4d2b; color:#f5e6b8; padding:16px 28px; border-radius:14px;
+    font-style: italic; font-weight:600; text-align:center; white-space:nowrap;
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    font-size:.95rem;
+  }
+
+  /* CARDS SECTION */
+  .cards-section {
+    max-width: 1200px;
+    margin: 90px auto 60px;
+    padding: 0 6%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .card {
+    background:#fff;
+    border-radius: 18px;
+    padding: 24px;
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    border: 1px solid #eee;
+  }
+  .card-icon {
+    width:80px; height:80px; border-radius:14px;
+    flex-shrink:0; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    font-size:2rem;
+  }
+  .card:nth-child(1) .card-icon { background:#dff0e2; }
+  .card:nth-child(2) .card-icon { background:#dbeafe; }
+  .card:nth-child(3) .card-icon { background:#f3e6d0; }
+  .card:nth-child(4) .card-icon { background:#fbe4e4; }
+  .card:nth-child(5) .card-icon { background:#e4e9df; }
+  .card:nth-child(6) .card-icon { background:#e9e4f7; }
+
+  .card-body h3 { font-size:1.05rem; color:#1e3d28; margin-bottom:6px; }
+  .card-body p { font-size:.85rem; color:#5a6b5c; line-height:1.5; margin-bottom:12px; }
+  .card-number {
+    display:inline-block; font-size:.75rem; font-weight:700;
+    color:#9aa79c; margin-bottom:4px;
+  }
+  .btn {
+    display:inline-flex; align-items:center; gap:6px;
+    padding:8px 16px; border-radius:20px; font-size:.8rem;
+    font-weight:600; color:#fff; text-decoration:none;
+    border:none; cursor:pointer;
+  }
+  .card:nth-child(1) .btn, .card:nth-child(2) .btn, .card:nth-child(5) .btn { background:#2f7d3c; }
+  .card:nth-child(3) .btn, .card:nth-child(6) .btn { background:#8a2b2b; }
+  .card:nth-child(4) .btn { background:#c9821a; }
+
+  /* FOOTER */
+  footer {
+    background:#173521;
+    color:#dfe7de;
+    padding: 20px 6%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    font-size:.85rem;
+    font-style: italic;
+  }
+  .socials { display:flex; gap:14px; }
+  .socials a {
+    width:32px; height:32px; border-radius:50%;
+    background:#25502f; display:flex; align-items:center; justify-content:center;
+    color:#fff; text-decoration:none; font-size:.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .cards-section { grid-template-columns: 1fr; }
+    .hero-text h1 { font-size: 2rem; }
+    .quote-box { position:static; transform:none; margin-top:20px; white-space:normal; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="greeting">Selamat Datang di</p>
+        <h1>MAN 1 PAMEKASAN</h1>
+        <p class="tagline">Madrasah Maju, Bermutu, Mendunia</p>
+        <p class="desc">
+          MAN 1 Pamekasan berkomitmen mencetak generasi berkarakter islami,
+          unggul dalam prestasi, terampil, berteknologi, serta berdaya saing global.
+        </p>
+        <div class="badges">
+          <div class="badge"><div class="badge-icon">📖</div>Islami</div>
+          <div class="badge"><div class="badge-icon">🏆</div>Berprestasi</div>
+          <div class="badge"><div class="badge-icon">💻</div>Berteknologi</div>
+          <div class="badge"><div class="badge-icon">🌐</div>Go Global</div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="[images.unsplash.com](https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=80)" alt="Gedung MAN 1 Pamekasan">
+        <div class="quote-box">"Iman, Ilmu, Amal<br>Menuju Ridho Ilahi"</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards-section">
+    <div class="card">
+      <div class="card-icon">🏫</div>
+      <div class="card-body">
+        <span class="card-number">01</span>
+        <h3>Pengantar tentang Profile Sekolah</h3>
+        <p>Kenali lebih dekat MAN 1 Pamekasan, sejarah, visi misi, fasilitas, prestasi, dan keunggulan kami.</p>
+        <a href="#" class="btn">Selengkapnya →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🤖</div>
+      <div class="card-body">
+        <span class="card-number">02</span>
+        <h3>Folder Produk AI dan IOT</h3>
+        <p>Kumpulan produk inovatif siswa dalam bidang Artificial Intelligence dan Internet of Things.</p>
+        <a href="#" class="btn">Selengkapnya →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎨</div>
+      <div class="card-body">
+        <span class="card-number">03</span>
+        <h3>Project Batik</h3>
+        <p>Eksplorasi, pelestarian, dan inovasi batik sebagai warisan budaya Indonesia.</p>
+        <a href="#" class="btn">Selengkapnya →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🍘</div>
+      <div class="card-body">
+        <span class="card-number">04</span>
+        <h3>Kuliner Khas Pamekasan</h3>
+        <p>Mengenal, melestarikan, dan mempromosikan kekayaan kuliner khas Pamekasan.</p>
+        <a href="#" class="btn">Selengkapnya →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏪</div>
+      <div class="card-body">
+        <span class="card-number">05</span>
+        <h3>Kewirausahaan</h3>
+        <p>Mengembangkan jiwa wirausaha siswa melalui inovasi, kreativitas, dan kemandirian ekonomi.</p>
+        <a href="#" class="btn">Selengkapnya →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🕊️</div>
+      <div class="card-body">
+        <span class="card-number">06</span>
+        <h3>P5RA</h3>
+        <p>Projek Penguatan Profil Pelajar Pancasila dan Rahmatan lil 'Alamin membentuk karakter unggul.</p>
+        <a href="#" class="btn">Selengkapnya →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>"Bersama MAN 1 Pamekasan, Mewujudkan Generasi Qur'ani, Cendekia, dan Berbudaya"</p>
+    <div class="socials">
+      <a href="#">📷</a>
+      <a href="#">▶️</a>
+      <a href="#">📘</a>
+      <a href="#">🌐</a>
+    </div>
+  </footer>
+
+</body>
+</html>
