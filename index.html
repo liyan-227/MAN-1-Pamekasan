@@ -5,6 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MAN 1 Pamekasan</title>
 <style>
+
+ .school-logo {
+    width: 120px;
+    max-width: 35%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 0 18px 0;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .school-logo {
+        width: 100px;
+        max-width: 30%;
+        margin-bottom: 15px;
+    }
+}
+
+/* HP */
+@media (max-width: 480px) {
+    .school-logo {
+        width: 85px;
+        max-width: 25%;
+        margin-bottom: 14px;
+    }
+}
   * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Arial, sans-serif; }
   body { background:#f4f6f2; color:#1f3d2b; }
 
@@ -140,8 +167,10 @@
     <div class="hero-content">
       <div class="hero-text">
         <p class="greeting">Selamat Datang di</p>
-       <img src="logo browser.png" alt="MAN 1 Pamekasan">
         <h1>MAN 1 PAMEKASAN</h1>
+       <img src="logo browser.png" 
+         alt="Logo MAN 1 Pamekasan" 
+         class="school-logo">
         <p class="tagline">Madrasah Maju, Bermutu, Mendunia</p>
         <p class="desc">
           MAN 1 Pamekasan berkomitmen mencetak generasi berkarakter islami,
