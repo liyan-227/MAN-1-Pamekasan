@@ -1,267 +1,488 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAN 1 Pamekasan</title>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAN 1 Pamekasan</title>
+    
+    <!-- Import Font Modern dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
- .school-logo {
-    width: 120px;
-    max-width: 35%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin: 0 0 18px 0;
-}
+    <style>
+        /* ================= VARIABEL WARNA & TEMA ================= */
+        :root {
+            --primary: #047857;       /* Hijau Utama */
+            --primary-dark: #064e3b;  /* Hijau Gelap */
+            --primary-light: #10b981; /* Hijau Terang */
+            --accent: #d97706;        /* Oranye Keemasan (Aksen) */
+            --bg-body: #f8fafc;       /* Latar Belakang Abu-abu sangat muda */
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-/* Tablet */
-@media (max-width: 768px) {
-    .school-logo {
-        width: 100px;
-        max-width: 30%;
-        margin-bottom: 15px;
-    }
-}
+        /* ================= PENGATURAN DASAR ================= */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+        }
+        
+        body { 
+            background: var(--bg-body); 
+            color: var(--text-main); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-/* HP */
-@media (max-width: 480px) {
-    .school-logo {
-        width: 85px;
-        max-width: 25%;
-        margin-bottom: 14px;
-    }
-}
-  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Arial, sans-serif; }
-  body { background:#f4f6f2; color:#1f3d2b; }
+        /* ================= LOGO ================= */
+        .school-logo {
+            width: 130px;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
 
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, #eaf3e6 0%, #f7f7f0 60%);
-    position: relative;
-    padding: 70px 6% 100px;
-    overflow: hidden;
-  }
-  .hero-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .hero-text { flex: 1 1 420px; }
-  .greeting { color:#c99a2e; font-size:1.3rem; font-style: italic; margin-bottom:6px; }
-  .hero-text h1 {
-    font-size: 2.6rem;
-    color:#1e4d2b;
-    line-height:1.15;
-    margin-bottom:10px;
-  }
-  .tagline { font-style: italic; color:#2f6b3e; font-size:1.1rem; margin-bottom:16px; }
-  .desc { color:#3c4a3d; font-size:.98rem; max-width:480px; line-height:1.6; margin-bottom:28px; }
+        /* ================= HERO SECTION ================= */
+        .hero {
+            background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%);
+            position: relative;
+            padding: 100px 6% 120px;
+            overflow: hidden;
+        }
+        
+        /* Dekorasi Lingkaran Latar (Kekinian) */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px; left: -50px;
+            width: 300px; height: 300px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            z-index: 0;
+        }
 
-  .badges { display:flex; gap:28px; flex-wrap:wrap; }
-  .badge { text-align:center; font-size:.85rem; font-weight:600; color:#25422a; }
-  .badge-icon {
-    width:56px; height:56px; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    margin:0 auto 8px; font-size:1.4rem; color:#fff;
-  }
-  .badge:nth-child(1) .badge-icon { background:#2f7d3c; }
-  .badge:nth-child(2) .badge-icon { background:#d6a020; }
-  .badge:nth-child(3) .badge-icon { background:#2f7d3c; }
-  .badge:nth-child(4) .badge-icon { background:#d6a020; }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-  .hero-image { flex: 1 1 420px; position: relative; }
-  .hero-image img {
-    width:100%; border-radius: 24px; display:block;
-    box-shadow: 0 20px 40px rgba(0,0,0,.15);
-  }
-  .quote-box {
-    position:absolute; bottom:-30px; left:50%; transform:translateX(-50%);
-    background:#1e4d2b; color:#f5e6b8; padding:16px 28px; border-radius:14px;
-    font-style: italic; font-weight:600; text-align:center; white-space:nowrap;
-    box-shadow: 0 10px 25px rgba(0,0,0,.25);
-    font-size:.95rem;
-  }
+        .hero-text { 
+            flex: 1 1 450px; 
+            animation: fadeUp 1s ease-out forwards;
+        }
 
-  /* CARDS SECTION */
-  .cards-section {
-    max-width: 1200px;
-    margin: 90px auto 60px;
-    padding: 0 6%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .card {
-    background:#fff;
-    border-radius: 18px;
-    padding: 24px;
-    display:flex;
-    gap:16px;
-    align-items:flex-start;
-    box-shadow: 0 6px 18px rgba(0,0,0,.06);
-    border: 1px solid #eee;
-  }
-  .card-icon {
-    width:80px; height:80px; border-radius:14px;
-    flex-shrink:0; overflow:hidden;
-    display:flex; align-items:center; justify-content:center;
-    font-size:2rem;
-  }
-  .card:nth-child(1) .card-icon { background:#dff0e2; }
-  .card:nth-child(2) .card-icon { background:#dbeafe; }
-  .card:nth-child(3) .card-icon { background:#f3e6d0; }
-  .card:nth-child(4) .card-icon { background:#fbe4e4; }
-  .card:nth-child(5) .card-icon { background:#e4e9df; }
-  .card:nth-child(6) .card-icon { background:#e9e4f7; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-  .card-body h3 { font-size:1.05rem; color:#1e3d28; margin-bottom:6px; }
-  .card-body p { font-size:.85rem; color:#5a6b5c; line-height:1.5; margin-bottom:12px; }
-  .card-number {
-    display:inline-block; font-size:.75rem; font-weight:700;
-    color:#9aa79c; margin-bottom:4px;
-  }
-  .btn {
-    display:inline-flex; align-items:center; gap:6px;
-    padding:8px 16px; border-radius:20px; font-size:.8rem;
-    font-weight:600; color:#fff; text-decoration:none;
-    border:none; cursor:pointer;
-  }
-  .card:nth-child(1) .btn, .card:nth-child(2) .btn, .card:nth-child(5) .btn { background:#2f7d3c; }
-  .card:nth-child(3) .btn, .card:nth-child(6) .btn { background:#2f7d3c; }
-  .card:nth-child(4) .btn { background:#2f7d3c; }
+        .greeting { 
+            color: var(--accent); 
+            font-size: 1.1rem; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px; 
+        }
 
-  /* FOOTER */
-  footer {
-    background:#173521;
-    color:#dfe7de;
-    padding: 20px 6%;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-    font-size:.85rem;
-    font-style: italic;
-  }
-  .socials { display:flex; gap:14px; }
-  .socials a {
-    width:32px; height:32px; border-radius:50%;
-    background:#25502f; display:flex; align-items:center; justify-content:center;
-    color:#fff; text-decoration:none; font-size:.9rem;
-  }
+        .hero-text h1 {
+            font-size: 3rem;
+            color: var(--primary-dark);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
 
-  @media (max-width: 768px) {
-    .cards-section { grid-template-columns: 1fr; }
-    .hero-text h1 { font-size: 2rem; }
-    .quote-box { position:static; transform:none; margin-top:20px; white-space:normal; }
-  }
-</style>
+        .tagline { 
+            font-style: italic; 
+            color: var(--primary); 
+            font-size: 1.2rem; 
+            font-weight: 600;
+            margin-bottom: 20px; 
+        }
+
+        .desc { 
+            color: var(--text-muted); 
+            font-size: 1.05rem; 
+            max-width: 500px; 
+            margin-bottom: 35px; 
+        }
+
+        /* ================= BADGES (Hero) ================= */
+        .badges { 
+            display: flex; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+        }
+        
+        .badge { 
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+            padding: 10px 20px 10px 10px;
+            border-radius: 50px;
+            font-size: 0.95rem; 
+            font-weight: 700; 
+            color: var(--primary-dark);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .badge-icon {
+            width: 40px; height: 40px; 
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; 
+            background: var(--primary-light);
+            color: #fff;
+        }
+
+        .badge:nth-child(even) .badge-icon { background: var(--accent); }
+
+        /* ================= HERO IMAGE ================= */
+        .hero-image { 
+            flex: 1 1 400px; 
+            position: relative; 
+            animation: fadeUp 1s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .hero-image img {
+            width: 100%; 
+            border-radius: 30px; 
+            display: block;
+            box-shadow: 0 25px 50px -12px rgba(4, 120, 87, 0.25);
+            border: 8px solid #ffffff;
+        }
+        
+        .quote-box {
+            position: absolute; 
+            bottom: -20px; left: 50%; 
+            transform: translateX(-50%);
+            background: var(--primary-dark); 
+            color: #ffffff; 
+            padding: 18px 32px; 
+            border-radius: 20px;
+            font-style: italic; 
+            font-weight: 600; 
+            text-align: center; 
+            white-space: nowrap;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* ================= CARDS SECTION ================= */
+        .cards-section {
+            max-width: 1200px;
+            margin: -40px auto 100px;
+            padding: 0 6%;
+            display: grid;
+            /* Grid Modern: Otomatis menyesuaikan kolom berdasarkan ukuran layar */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--primary-light);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-icon {
+            width: 65px; height: 65px; 
+            border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            background: #ecfdf5;
+        }
+
+        .card-number {
+            font-size: 1.5rem; 
+            font-weight: 800;
+            color: #e2e8f0;
+        }
+
+        .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body h3 { 
+            font-size: 1.25rem; 
+            color: var(--primary-dark); 
+            margin-bottom: 12px; 
+            font-weight: 700;
+        }
+        
+        .card-body p { 
+            font-size: 0.95rem; 
+            color: var(--text-muted); 
+            line-height: 1.6; 
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        /* ================= TOMBOL KARTU ================= */
+        .btn {
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px; 
+            border-radius: 50px; 
+            font-size: 0.9rem;
+            font-weight: 700; 
+            color: #ffffff; 
+            text-decoration: none;
+            background: var(--primary);
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+
+        .btn:hover { 
+            background: var(--primary-dark); 
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(4, 120, 87, 0.4);
+        }
+
+        /* Panah Tombol Animasi */
+        .btn::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+        .btn:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: var(--primary-dark);
+            color: #f8fafc;
+            padding: 40px 6%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-top: 5px solid var(--accent);
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .socials { display: flex; gap: 15px; }
+        .socials a {
+            width: 40px; height: 40px; 
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1); 
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; text-decoration: none; font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .socials a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* ================= RESPONSIF (HP & TABLET) ================= */
+        @media (max-width: 992px) {
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero { padding: 80px 6% 100px; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text { text-align: center; }
+            .hero-content { justify-content: center; }
+            .desc { margin: 0 auto 30px; }
+            .badges { justify-content: center; }
+            
+            .hero-text h1 { font-size: 2.2rem; }
+            
+            .quote-box { 
+                position: relative; 
+                bottom: 0; left: 0; 
+                transform: none; 
+                margin-top: -20px; 
+                margin-bottom: 20px;
+                white-space: normal; 
+                z-index: 5;
+            }
+            .cards-section { margin-top: 40px; }
+            footer { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .school-logo { margin: 0 auto 20px; }
+            .hero-text h1 { font-size: 1.8rem; }
+            .btn { width: 100%; }
+        }
+    </style>
 </head>
 <body>
 
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <p class="greeting">Selamat Datang di</p>
-        <h1>MAN 1 PAMEKASAN</h1>
-       <img src="logo browser.png" 
-         alt="Logo MAN 1 Pamekasan" 
-         class="school-logo">
-        <p class="tagline">Madrasah Maju, Bermutu, Mendunia</p>
-        <p class="desc">
-          MAN 1 Pamekasan berkomitmen mencetak generasi berkarakter islami,
-          unggul dalam prestasi, terampil, berteknologi, serta berdaya saing global.
-        </p>
-        <div class="badges">
-          <div class="badge"><div class="badge-icon">📖</div>Islami</div>
-          <div class="badge"><div class="badge-icon">🏆</div>Berprestasi</div>
-          <div class="badge"><div class="badge-icon">💻</div>Berteknologi</div>
-          <div class="badge"><div class="badge-icon">🌐</div>Go Global</div>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <img src="logo browser.png" alt="Logo MAN 1 Pamekasan" class="school-logo">
+                <p class="greeting">Selamat Datang di</p>
+                <h1>MAN 1 PAMEKASAN</h1>
+                <p class="tagline">Madrasah Maju, Bermutu, Mendunia</p>
+                <p class="desc">
+                    MAN 1 Pamekasan berkomitmen mencetak generasi berkarakter islami,
+                    unggul dalam prestasi, terampil, berteknologi, serta berdaya saing global.
+                </p>
+                <div class="badges">
+                    <div class="badge"><div class="badge-icon">📖</div>Islami</div>
+                    <div class="badge"><div class="badge-icon">🏆</div>Berprestasi</div>
+                    <div class="badge"><div class="badge-icon">💻</div>Berteknologi</div>
+                    <div class="badge"><div class="badge-icon">🌐</div>Go Global</div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="sekolah-3.jpeg" alt="Gedung MAN 1 Pamekasan">
+                <div class="quote-box">"Iman, Ilmu, Amal Menuju Ridho Ilahi"</div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="hero-image">
-        <img src="sekolah-3.jpeg" alt="Gedung MAN 1 Pamekasan">
-        <div class="quote-box">"Iman, Ilmu, Amal<br>Menuju Ridho Ilahi"</div>
-      </div>
-    </div>
-  </section>
+    <section class="cards-section">
+        <!-- Kartu 1 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="color: #059669; background: #d1fae5;">🏫</div>
+                <span class="card-number">01</span>
+            </div>
+            <div class="card-body">
+                <h3>Profile Sekolah</h3>
+                <p>Kenali lebih dekat MAN 1 Pamekasan, sejarah, visi misi, fasilitas, prestasi, dan keunggulan kami.</p>
+                <a href="https://man1pamekasan.sch.id/" class="btn">Selengkapnya</a>
+            </div>
+        </div>
 
-  <section class="cards-section">
-    <div class="card">
-      <div class="card-icon">🏫</div>
-      <div class="card-body">
-        <span class="card-number">01</span>
-        <h3>Pengantar tentang Profile Sekolah</h3>
-        <p>Kenali lebih dekat MAN 1 Pamekasan, sejarah, visi misi, fasilitas, prestasi, dan keunggulan kami.</p>
-        <a href="https://man1pamekasan.sch.id/" class="btn">Selengkapnya →</a>
-      </div>
-    </div>
+        <!-- Kartu 2 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="color: #2563eb; background: #dbeafe;">🤖</div>
+                <span class="card-number">02</span>
+            </div>
+            <div class="card-body">
+                <h3>Folder Produk AI & IOT</h3>
+                <p>Kumpulan produk inovatif siswa dalam bidang Artificial Intelligence dan Internet of Things.</p>
+                <a href="ai dan iot.html" class="btn">Selengkapnya</a>
+            </div>
+        </div>
 
-    <div class="card">
-      <div class="card-icon">🤖</div>
-      <div class="card-body">
-        <span class="card-number">02</span>
-        <h3>Folder Produk AI dan IOT</h3>
-        <p>Kumpulan produk inovatif siswa dalam bidang Artificial Intelligence dan Internet of Things.</p>
-        <a href="ai dan iot.html" class="btn">Selengkapnya →</a>
-      </div>
-    </div>
+        <!-- Kartu 3 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="color: #b45309; background: #fef3c7;">🎨</div>
+                <span class="card-number">03</span>
+            </div>
+            <div class="card-body">
+                <h3>Project Batik</h3>
+                <p>Eksplorasi, pelestarian, dan inovasi karya membatik sebagai warisan budaya bangsa Indonesia.</p>
+                <a href="https://drive.google.com/drive/folders/1FSR0GzZFUdwZE-L_gipGltFms9XxkeQM?usp=drive_link" class="btn">Selengkapnya</a>
+            </div>
+        </div>
 
-    <div class="card">
-      <div class="card-icon">🎨</div>
-      <div class="card-body">
-        <span class="card-number">03</span>
-        <h3>Project Batik</h3>
-        <p>Eksplorasi, pelestarian, dan inovasi batik sebagai warisan budaya Indonesia.</p>
-        <a href="https://drive.google.com/drive/folders/1FSR0GzZFUdwZE-L_gipGltFms9XxkeQM?usp=drive_link" class="btn">Selengkapnya →</a>
-      </div>
-    </div>
+        <!-- Kartu 4 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="color: #be123c; background: #ffe4e6;">🍘</div>
+                <span class="card-number">04</span>
+            </div>
+            <div class="card-body">
+                <h3>Kuliner Khas Pamekasan</h3>
+                <p>Mengenal, melestarikan, dan mempromosikan kekayaan cita rasa kuliner khas daerah Pamekasan.</p>
+                <a href="https://drive.google.com/drive/folders/1GbDFFrDRHopjCUwdypPGawAqG3-T6Z9Z?usp=drive_link" class="btn">Selengkapnya</a>
+            </div>
+        </div>
 
-    <div class="card">
-      <div class="card-icon">🍘</div>
-      <div class="card-body">
-        <span class="card-number">04</span>
-        <h3>Kuliner Khas Pamekasan</h3>
-        <p>Mengenal, melestarikan, dan mempromosikan kekayaan kuliner khas Pamekasan.</p>
-        <a href="https://drive.google.com/drive/folders/1GbDFFrDRHopjCUwdypPGawAqG3-T6Z9Z?usp=drive_link" class="btn">Selengkapnya →</a>
-      </div>
-    </div>
+        <!-- Kartu 5 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="color: #4d7c0f; background: #ecfccb;">🏪</div>
+                <span class="card-number">05</span>
+            </div>
+            <div class="card-body">
+                <h3>Kewirausahaan</h3>
+                <p>Mengembangkan jiwa wirausaha siswa melalui inovasi, kreativitas, dan kemandirian ekonomi masa depan.</p>
+                <a href="#" class="btn">Selengkapnya</a>
+            </div>
+        </div>
 
-    <div class="card">
-      <div class="card-icon">🏪</div>
-      <div class="card-body">
-        <span class="card-number">05</span>
-        <h3>Kewirausahaan</h3>
-        <p>Mengembangkan jiwa wirausaha siswa melalui inovasi, kreativitas, dan kemandirian ekonomi.</p>
-        <a href="#" class="btn">Selengkapnya →</a>
-      </div>
-    </div>
+        <!-- Kartu 6 -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="color: #7e22ce; background: #f3e8ff;">🕊️</div>
+                <span class="card-number">06</span>
+            </div>
+            <div class="card-body">
+                <h3>P5RA</h3>
+                <p>Projek Penguatan Profil Pelajar Pancasila dan Rahmatan lil 'Alamin membentuk karakter unggul.</p>
+                <a href="https://drive.google.com/drive/folders/1F8pcZBzs2CqcedW-TjayjpoALa-nVjpO?usp=drive_link" class="btn">Selengkapnya</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-      <div class="card-icon">🕊️</div>
-      <div class="card-body">
-        <span class="card-number">06</span>
-        <h3>P5RA</h3>
-        <p>Projek Penguatan Profil Pelajar Pancasila dan Rahmatan lil 'Alamin membentuk karakter unggul.</p>
-        <a href="https://drive.google.com/drive/folders/1F8pcZBzs2CqcedW-TjayjpoALa-nVjpO?usp=drive_link" class="btn">Selengkapnya →</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>"Bersama MAN 1 Pamekasan, Mewujudkan Generasi Qur'ani, Cendekia, dan Berbudaya"</p>
-    <div class="socials">
-      <a href="#">📷</a>
-      <a href="#">▶️</a>
-      <a href="#">📘</a>
-      <a href="#">🌐</a>
-    </div>
-  </footer>
+    <footer>
+        <p class="footer-text">"Bersama MAN 1 Pamekasan, Mewujudkan Generasi Qur'ani, Cendekia, dan Berbudaya"</p>
+        <div class="socials">
+            <a href="#">📷</a>
+            <a href="#">▶️</a>
+            <a href="#">📘</a>
+            <a href="#">🌐</a>
+        </div>
+    </footer>
 
 </body>
 </html>
