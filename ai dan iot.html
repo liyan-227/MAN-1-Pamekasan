@@ -25,6 +25,77 @@
         }
 
         /* ================= Container Bagian ================= */
+.btn-kembali {
+            /* Layout & Teks */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Jarak antara ikon dan teks */
+            padding: 12px 28px;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            
+            /* Warna & Bentuk (Tema Hijau Modern) */
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border: none;
+            border-radius: 50px; /* Bentuk melengkung penuh (Pill shape) */
+            
+            /* Efek Bayangan (Glow) */
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            
+            /* Animasi */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+
+        /* Ikon SVG di dalam tombol */
+        .btn-kembali svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Efek saat mouse diarahkan (Hover) */
+        .btn-kembali:hover {
+            transform: translateY(-3px); /* Tombol sedikit terangkat */
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.6); /* Bayangan membesar */
+            background: linear-gradient(135deg, #059669 0%, #047857 100%); /* Warna sedikit lebih gelap */
+        }
+
+        /* Animasi ikon panah bergeser sedikit ke kiri saat di-hover */
+        .btn-kembali:hover svg {
+            transform: translateX(-4px);
+        }
+
+        /* Efek saat tombol diklik (Active) */
+        .btn-kembali:active {
+            transform: translateY(1px); /* Tombol menekan ke bawah */
+            box-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
+        }
+
+        /* =========================================
+           ATURAN RESPONSIF (HP / Layar Kecil)
+           ========================================= */
+        @media screen and (max-width: 480px) {
+            .btn-kembali {
+                padding: 10px 24px; /* Padding sedikit dikurangi */
+                font-size: 15px;    /* Teks disesuaikan */
+                width: 100%;        /* (Opsional) Lebar penuh di HP jika diinginkan, hapus baris ini jika ingin tetap kecil */
+            }
+        }
+
+        /* (Hanya untuk demo agar posisi di tengah) */
+        .demo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+        }
+        
         .section-iot {
             padding: 4rem 2rem;
             display: flex;
@@ -136,7 +207,12 @@
     </style>
 </head>
 <body>
-
+<a href="#" class="btn-kembali" onclick="history.back(); return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span>Kembali</span>
+        </a>
     <!-- Bagian 2. Folder Produk & IoT -->
     <section class="section-iot">
         <div class="card-container">
