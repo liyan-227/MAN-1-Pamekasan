@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagian Produk dan IoT</title>
+    <style>
+        /* ================= Pengaturan Dasar ================= */
+        :root {
+            --primary-color: #047857; /* Hijau Madrasah/Tema */
+            --primary-hover: #065f46;
+            --bg-color: #f9fafb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+        }
+
+        /* ================= Container Bagian ================= */
+        .section-iot {
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-container {
+            background: #ffffff;
+            max-width: 800px;
+            width: 100%;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        /* ================= Tipografi ================= */
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* ================= Grid untuk 4 Tombol ================= */
+        .button-grid {
+            display: grid;
+            /* Auto-fit akan mencoba membuat 2 kolom jika ruang cukup */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+        }
+
+        /* ================= Gaya Tombol ================= */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Tombol Website (Gaya Solid) */
+        .btn-web {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-web:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Tombol Folder (Gaya Outline) */
+        .btn-folder {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-folder:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* ================= ATURAN RESPONSIF (HP / Tablet) ================= */
+        @media screen and (max-width: 768px) {
+            .section-iot {
+                padding: 2rem 1rem; /* Jarak luar diperkecil di HP */
+            }
+
+            .card-container {
+                padding: 2rem 1.5rem; /* Jarak dalam kotak diperkecil */
+            }
+
+            .section-title {
+                font-size: 1.5rem; /* Judul lebih kecil */
+            }
+
+            .section-desc {
+                font-size: 1rem; /* Teks deskripsi lebih kecil */
+                margin-bottom: 2rem;
+            }
+
+            .button-grid {
+                /* Memaksa tombol untuk menumpuk ke bawah (1 kolom) di HP */
+                grid-template-columns: 1fr; 
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bagian 2. Folder Produk & IoT -->
+    <section class="section-iot">
+        <div class="card-container">
+            <h2 class="section-title">2. Folder Produk dan IoT</h2>
+            <p class="section-desc">
+                Bagian ini memuat integrasi sistem serta dokumentasi perangkat inovasi kami. Silakan akses tautan di bawah ini untuk mengunjungi sistem website yang terhubung, atau buka folder perlengkapan untuk melihat data teknis dan modul IoT.
+            </p>
+            
+            <div class="button-grid">
+                <!-- 2 Tombol Website -->
+                <a href="https://nutrivibe-ai-deteksi-makanan-sehat.ai.studio/" class="btn btn-web">Nutrivibe</a>
+                <a href="https://eszie026-debug.github.io/kebijakan-fiskal-3d-d/" class="btn btn-web">Ekonomi / Fiskal</a>
+                
+                <!-- 2 Tombol Folder -->
+                <a href="#link-folder-1" class="btn btn-folder">📁 Perlengkapan Folder 1</a>
+                <a href="#link-folder-2" class="btn btn-folder">📁 Perlengkapan Folder 2</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
